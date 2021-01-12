@@ -68,8 +68,8 @@ return count;
  */
 function differences(numbers) {
   let diffarr=[];
-  for (let i = 0; i < numbers.length - 1; i ++) {
-     diffarr.push(numbers[i+1] - numbers[i]);
+  for (let i = 1; i < numbers.length; i ++) {
+     diffarr.push(numbers[i] - numbers[i-1]);
   }
   return diffarr
 }
@@ -92,7 +92,7 @@ function differences(numbers) {
  */
 function largestIncrement(numbers) {
   // Your code here
-  let large= differences(numbers);
+ /* let large= differences(numbers);
   let max=0;
   for(let el of large){
     if(el>max){
@@ -100,6 +100,9 @@ function largestIncrement(numbers) {
     }
   }
   return max;
+}*/
+
+return Math.max(...differences(numbers));
 }
 
 /**
@@ -117,7 +120,7 @@ function afterX(numbers, x) {
   // Your code here
  return numbers.filter((number)=>{
     if(number>x){
-      return number
+      return number;
     }
   });
 }
@@ -135,9 +138,8 @@ function afterX(numbers, x) {
  */
 function abbreviate(firstName, lastName) {
   // Your code here
- let f= firstName.slice(0,1);
-  let l= lastName.slice(0,1);
-  return `${f.toUpperCase()}${l.toUpperCase()}`;
+ 
+  return `${firstName.slice(0,1)}${lastName.slice(0,1)}`.toUpperCase();
 }
 
 
